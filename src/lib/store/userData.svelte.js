@@ -1,8 +1,6 @@
 // Supabase
 import { supabase } from '$lib/api/supabaseClient';
 
-let redirectURL = 'http://localhost:5173/';
-
 function createUserData() {
 	let user = $state(null);
 	let session = $state(null);
@@ -27,7 +25,7 @@ function createUserData() {
 	async function signInWithGoogle() {
 		const { error } = await supabase.auth.signInWithOAuth({
 			provider: 'google',
-			options: { redirectTo: 'http://localhost:5173/' }
+			options: { redirectTo: 'http://localhost:5173/auth/callback' }
 		});
 
 		if (error) {
@@ -95,7 +93,7 @@ function createUserData() {
 	return {
 		get user() {
 			return user
-		}
+		},
 		signInWithGoogle,
 		signOut,
 		fetchUser,
