@@ -93,7 +93,9 @@ function createUserData() {
 	fetchUser();
 
 	return {
-		user, // Directly exposes the reactive $state
+		get user() {
+			return user
+		}
 		signInWithGoogle,
 		signOut,
 		fetchUser,
