@@ -45,8 +45,12 @@
                 </button>
             </div>
         {:else}
+<<<<<<< Updated upstream
             <!-- 未ログイン -->
             <button onclick={signInWithGoogle} class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+=======
+            <button onclick={async () => { await supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: 'http://localhost:5173/auth/callback' } }); }} class="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-600">
+>>>>>>> Stashed changes
                 Googleでログイン
             </button>
         {/if}
